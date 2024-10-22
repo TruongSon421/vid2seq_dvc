@@ -216,10 +216,7 @@ def get_args_parser():
     # Model parameters
     parser.add_argument(
         "--model_name",
-        default="t5-base",
-        choices=(
-            "t5-base", os.path.join(MODEL_DIR, "7BHF"), "Salesforce/blip2-flan-t5-xl"
-        ),
+        default="t5-base"
     )
     parser.add_argument(
         "--bert_name",
