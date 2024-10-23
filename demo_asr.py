@@ -13,7 +13,7 @@ args.model_name = os.path.join(os.environ["TRANSFORMERS_CACHE"], args.model_name
 device = torch.device(args.device)
 
 print("load Whisper model")
-asr_model = whisper.load_model('large-v2', args.device, download_root=MODEL_DIR)
+asr_model = whisperx.load_model('large-v2', args.device, download_root=MODEL_DIR)
 print("extract ASR")
 asr = asr_model.transcribe(args.video_example)
 print("load align model")
