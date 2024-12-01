@@ -177,7 +177,7 @@ def evaluate(
                                 use_nucleus_sampling=args.num_beams == 0,
                                 num_beams=args.num_beams,
                                 max_length=args.max_output_tokens,
-                                min_length=1,
+                                min_length=10,
                                 top_p=args.top_p,
                                 repetition_penalty=args.repetition_penalty,
                                 length_penalty=args.length_penalty,
