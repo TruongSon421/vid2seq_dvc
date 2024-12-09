@@ -202,7 +202,7 @@ def get_args_parser():
     )
     parser.add_argument("--eval", action="store_true", help="only run evaluation")
     parser.add_argument(
-        "--num_workers", default=0, type=int, help="number of workers for dataloader"
+        "--num_workers", default=2, type=int, help="number of workers for dataloader"
     )
 
     # Distributed training parameters
