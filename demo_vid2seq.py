@@ -10,7 +10,7 @@ import clip
 import ffmpeg
 from model import build_vid2seq_model, _get_tokenizer
 from args import get_args_parser, MODEL_DIR
-
+import json
 
 class Normalize(object):
     def __init__(self, mean, std):
@@ -194,4 +194,14 @@ for j, idx in enumerate(indexes):  # iterate on predicted events
     res.append({'sentence': text,
                 'timestamp': [start, end]})
     last_processed = idx
-print(res)
+formatted_res = []
+for item in res:
+    start, end = [f"{t // 60}:{t % 60:02}" for t in item['timestamp']]
+    formatted_res.append(f"{start}-{end} : {item['sentence']}")
+
+# Save the modified list to a JSON file
+output_file = 'output.json'
+with open(output_file, 'w', encoding='utf-8') as f:
+    json.dump(formatted_res, f, ensure_ascii=False, indent=4)
+
+print(formatted_res)
